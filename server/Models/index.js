@@ -1,5 +1,7 @@
-import User from "./User";
+import Survivor from "./Survivor";
+import Inventory from "./Inventory";
 
 export default {
-	ModelName
+	Survivor,
+	Inventory
 };
