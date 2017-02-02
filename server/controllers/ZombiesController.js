@@ -1,5 +1,9 @@
-const ZombiesController = {
+const ZombiesController = {};
 
+ZombiesController.get = (req, res) => {
+	res.json({
+		nome: "adsiadsij"
+	});
 };
 
 

@@ -1,9 +1,8 @@
 import express from 'express';
-const router = express();
-
 //import controller
 import ZombiesController from './controllers/ZombiesController';
+const router = express();
 
-
+router.get("/a", ZombiesController.get);
 
 export default router;

@@ -1,12 +1,13 @@
 import express from 'express';
-import orm from 'orm';
+import routes from './routes';
+import bodyParser from 'body-parser'
+import mongoose from 'mongoose';
 const app = express();
 
-app.use(orm.express("mysql://homestead:secret@localhost/zombies", {
-	define: (db, models, next) => {
-		models.person = db.define("person", {});
-		next();
-	}
-}));
+app.use("/api", routes);
+app.use(bodyParser.json());
+mongoose.connect("mongodb://localhost:port/database", () => {
+	console.log('connected');
+});
 
 export default app;
