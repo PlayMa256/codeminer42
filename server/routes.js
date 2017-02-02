@@ -1,8 +1,8 @@
 import express from 'express';
 //import controller
-import ZombiesController from './controllers/ZombiesController';
+import SurvivorsController from './controllers/SurvivorsController';
 const router = express();
 
-router.get("/a", ZombiesController.get);
+router.post("/survivors/create", SurvivorsController.add);
 
 export default router;

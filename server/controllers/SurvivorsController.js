@@ -5,14 +5,12 @@ const SurvivorsController = {};
 SurvivorsController.add = (req, res) => {
 	const {name, age, gender, lastLocation} = req.body;
 	console.log(lastLocation);
-	var Inventory = new models.Inventory();
 	var Survivor = new models.Survivor({name, age, gender, lastLocation});
 
 	Survivor.save()
 	.then((newUser) => {
 		res.status(200).json({
-			success: true,
-			data: newUser
+			success: true
 		});
 	}).catch((error) => {
 		res.status(500).json({
