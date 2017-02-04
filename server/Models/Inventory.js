@@ -2,9 +2,12 @@ import mongoose from 'mongoose';
 const {Schema} = mongoose;
 mongoose.Promise = global.Promise;
 
-const Inventory = new Schema({
-	item_name: String,
-	amount: Number
+const InventorySchema = new Schema({
+	items : [{
+		item_name: String,
+		qty: Number
+	}]
 });
 
+const Inventory = mongoose.model('Inventory', InventorySchema);
 export default Inventory;

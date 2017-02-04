@@ -11,16 +11,27 @@
   `POST`
   
 * **Data Params**
-
-  `{
-  "name" : "Matheus",
-  "age" : 22,
-  "gender" : "male",
-  "lastLocation" : [{
-    "lastLong": 21.8778,
-    "lastLat": 14.8771
-  }]
-}`
+```
+  {
+    "name" : "Matheus",
+    "age" : 21,
+    "gender" : "male",
+    "lastLocation" : [{
+      "lastLong": 21.8778,
+      "lastLat": 14.8771
+    }],
+    "inventory": [
+      {
+        "item_name": "Water",
+        "qty" : 4
+      },
+      {
+        "item_name": "Food",
+        "qty" : 4
+      }
+    ]
+  }
+```
 
 * **Success Response:**
   
@@ -46,12 +57,14 @@
   
 * **Data Params**
 
-  `{
+```
+{
   "lastLocation" : [{
     "lastLong": 21.1178,
     "lastLat": 14.7777777
   }]
-}`
+}
+```
 
 * **Success Response:**
     * **Code:** 200 <br />
