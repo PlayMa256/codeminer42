@@ -14,6 +14,28 @@ InventoryController.trade = (req, res) => {
 			var originItems = origin.items;
 			var destinationItems = destination.items;
 			
+			var tempOriginItems = [];
+			var tempDestItems = [];
+			var temp;
+
+			items.forEach((toTradeItem) =>{
+				originItems.forEach((originItem) => {
+					if(toTradeItem.item_name === originItem.item_name){
+						/// APLICAR CONDIÇOSE
+						// temp = originItem.qty - toTradeItem.qty;
+						// if(temp <= 0){
+						// 	originItems.splice(1, originItems.indexOf(originItem));
+						// }else{
+
+						// }
+					}
+				});
+
+				destinationItems.forEach((destItem) => {
+
+				});
+			});
+
 		}).catch((error) => {
 
 		});
