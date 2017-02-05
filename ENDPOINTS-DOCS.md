@@ -100,3 +100,40 @@
 * **Error Response:**
   * **Code:** 500 <br />
     **Content:** `{ message : error }`
+
+----
+
+* **URL**
+
+  `/api/reports/infecteds/`
+
+* **Method:**
+  
+  `GET`
+  
+* **Success Response:**
+    * **Code:** 200 <br />
+    **Content:** `{ message: "x %" }`
+ 
+* **Error Response:**
+  * **Code:** 500 <br />
+    **Content:** `{ message : "Couldnt get the % of infecteds" }`
+
+
+----
+
+* **URL**
+
+  `/api/reports/survivors/`
+
+* **Method:**
+ 
+  `GET`
+  
+* **Success Response:**
+    * **Code:** 200 <br />
+    **Content:** `{ message: "x %" }`
+ 
+* **Error Response:**
+  * **Code:** 500 <br />
+    **Content:** `{ message : "Couldnt get the % of alives" }`
