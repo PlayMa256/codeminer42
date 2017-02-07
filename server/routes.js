@@ -13,6 +13,7 @@ router.get("/survivors/who-are-you", SurvivorsController.whoAreYou);
 router.get("/reports/infecteds", ReportsController.infecteds);
 router.get("/reports/survivors", ReportsController.nonInfecteds);
 router.get("/reports/averageMaterial", ReportsController.averageMaterial);
+router.get("/reports/losses", ReportsController.losses);
 
 router.get("/survivors/who-are-you")
 

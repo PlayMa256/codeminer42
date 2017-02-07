@@ -156,3 +156,20 @@
     **Content:** `{ message : "we couldnt find the number of survivors " }`
       OR
     **Content:** `{ message : "we couldnt find all the survivors" }`
+
+----
+
+* **URL**
+
+  `/api/reports/losses`
+
+* **Method:**
+  `GET`
+  
+* **Success Response:**
+    * **Code:** 200 <br />
+    **Content:** `{"amountLost": 300;}`
+ 
+* **Error Response:**
+  * **Code:** 500 <br />
+    **Content:** `{"message": "We had a problem finding walkers"}`

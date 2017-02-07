@@ -61,8 +61,34 @@ ReportsController.nonInfecteds = (req, res) => {
 ReportsController.losses = (req, res) => {
 	// Points lost because of infected survivor.
 	const Survivor = models.Survivor;
+	Survivor.find({"status":true}).then(walkers => {
+		let amountLost = 0;
+		walkers.inventory.forEach(inv => {
+			switch(inv.item_name){
+				case "Water":
+					amountLost += inv.qty * 4;
+				break;
+				case "Food":
+					amountLost += inv.qty * 3;
+				break;
+				case "Ammunition":
+					amountLost += inv.qty * 1;
+				break;
+				case "Medication":
+					amountLost += inv.qty * 2;
+				break;
+			}
+		});
 
-	
+		res.status(200).json({
+			"amountLost": amountLost;
+		});
+	}).catch(error => {
+		res.status(500).json({
+			"message": "We had a problem finding walkers"
+		});
+	});
+
 
 };
 
