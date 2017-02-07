@@ -8,9 +8,12 @@ const router = express();
 router.post("/survivors/create", SurvivorsController.add);
 router.put("/survivors/update/:id", SurvivorsController.update);
 router.get("/survivors/flag/:id", SurvivorsController.flag);
+router.get("/survivors/who-are-you", SurvivorsController.whoAreYou);
 
 router.get("/reports/infecteds", ReportsController.infecteds);
 router.get("/reports/survivors", ReportsController.nonInfecteds);
+router.get("/reports/averageMaterial", ReportsController.averageMaterial);
 
+router.get("/survivors/who-are-you")
 
 export default router;

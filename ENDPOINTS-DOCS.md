@@ -137,3 +137,22 @@
 * **Error Response:**
   * **Code:** 500 <br />
     **Content:** `{ message : "Couldnt get the % of alives" }`
+
+----
+
+* **URL**
+
+  `/api/reports/averageMaterial`
+
+* **Method:**
+  `GET`
+  
+* **Success Response:**
+    * **Code:** 200 <br />
+    **Content:** `{"Water": 8, "Food": 0, "Ammunition": 0,"Medication": 0}`
+ 
+* **Error Response:**
+  * **Code:** 500 <br />
+    **Content:** `{ message : "we couldnt find the number of survivors " }`
+      OR
+    **Content:** `{ message : "we couldnt find all the survivors" }`

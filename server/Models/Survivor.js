@@ -12,7 +12,10 @@ const SurvivorSchema = new Schema({
 	}],
 	status: Boolean,
 	reports: Number,
-	inventory: Schema.Types.ObjectId
+	inventory: [{
+		item_name: String,
+		qty: Number
+	}]
 });
 
 const Survivor = mongoose.model('Survivor', SurvivorSchema);

@@ -58,31 +58,67 @@ ReportsController.nonInfecteds = (req, res) => {
 };
 
 
-ReportsController.losses = () => {
+ReportsController.losses = (req, res) => {
 	// Points lost because of infected survivor.
+	const Survivor = models.Survivor;
+
+	
+
 };
 
 // Average amount of each kind of resource by survivor (e.g. 5 waters per survivor)
 ReportsController.averageMaterial = (req, res) => {
-	
+	const Survivor = models.Survivor;
+	Survivor.find({"status":false}).then(survivors => {
+		const numberOfSurvivors = ReportsController.numberOfSurvivors();
+		numberOfSurvivors.then(total => {
+			let allItems = [0,0,0,0];
+			survivors.forEach(survivor => {
+				survivor.inventory.forEach(item => {
+					switch(item.item_name){
+						case "Water":
+							allItems[0] += item.qty;
+						break;
+						case "Food":
+							allItems[1] += item.qty;
+						break;
+						case "Ammunition":
+							allItems[2] += item.qty;
+						break;
+						case "Medication":
+							allItems[3] += item.qty;
+						break;
+					}
+				});
+			});
 
-	// array with all the items
+			let allItemsTemp = [0,0,0,0];
+			allItems.forEach(i => {
+				if(i===0){
+					allItemsTemp[allItems.indexOf(i)] = i;	
+				}else{
+					allItemsTemp[allItems.indexOf(i)] = Math.round(i/total);
+				}	
+			});
 
-	//check all inventories
+			res.status(200).json({
+				"Water": allItemsTemp[0],
+				"Food" : allItemsTemp[1],
+				"Ammunition" : allItemsTemp[2],
+				"Medication" : allItemsTemp[3],
+			});
 
-	//put ++ on the array with all the items.
-
-	//return when everything is done.
-		// THIS IS THE BIGGEST PROBLEM, BECAUSE I'M GONNA RUN EVERYTHING INSIDE A FUCKING PROMISE!!!!
+		}).catch(error => {
+			res.status(500).json({
+				"message" : "we couldnt find the number of survivors"
+			});
+		});
 		
-
+	}).catch(error => {
+		res.status(500).json({
+			"message" : "we couldnt find all the survivors"
+		});
+	});
 };
-
-
-
-
-
-
-
 
 export default ReportsController;

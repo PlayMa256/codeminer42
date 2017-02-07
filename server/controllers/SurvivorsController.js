@@ -4,30 +4,17 @@ const SurvivorsController = {};
 
 SurvivorsController.add = (req, res) => {
 	const {name, age, gender, lastLocation, inventory} = req.body;
-
-	var Inventory = new models.Inventory({items: inventory});
-	var Survivor = new models.Survivor({name, age, gender, lastLocation, status: false, reports: 0});
-
-	Inventory.save()
-	.then((inventory) => {
-		Survivor.inventory = inventory;
+	var Survivor = new models.Survivor({name, age, gender, lastLocation, status: false, reports: 0, inventory: inventory});
 		Survivor.save()
 		.then((newUser) => {
 			res.status(200).json({
 				success: true,
-				data: inventory,
-				data2: newUser
 			});
 		}).catch((error) => {
 			res.status(500).json({
 				message: "Cannot create survivor"
 			});
 		});
-	}).catch((error) => {
-		res.status(500).json({
-			message: "Cannot create inventory"
-		});
-	});
 	
 };
 
@@ -94,5 +81,10 @@ SurvivorsController.flag = (req, res) => {
 	});
 };
 
+SurvivorsController.whoAreYou = (req, res) => {
+	res.status(200).json({
+		"im": "NEGAN"
+	});
+};
 
 export default SurvivorsController;
