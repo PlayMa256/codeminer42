@@ -22,8 +22,8 @@ ReportsController.infecteds = (req, res) => {
 	numberOfWalker.then((amountInfected) => {
 		total.then(totalAmnt => {
 			res.status(200).json({
-    			"message" : ((amountInfected/totalAmnt)* 100)+"%"
-    		});
+				"message" : ((amountInfected/totalAmnt)* 100)+"%"
+			});
 		}).catch((error) => {
 			res.status(500).json({
 				message: "Error while getting the total"
@@ -40,21 +40,21 @@ ReportsController.nonInfecteds = (req, res) => {
 	// Percentage of non-infected survivors.
 	const numberOfSurvivors = ReportsController.numberOfSurvivors();
 	const total = ReportsController.total();
-		numberOfSurvivors.then((amountAlive) => {
-			total.then(totalAmnt => {
-				res.status(200).json({
-	    			"message" : ((amountAlive/totalAmnt)*100)+"%"
-	    		});
-			}).catch(errror => {
-				res.status(500).json({
-					message: "Error while getting the total"
-				});
+	numberOfSurvivors.then((amountAlive) => {
+		total.then(totalAmnt => {
+			res.status(200).json({
+				"message" : ((amountAlive/totalAmnt)*100)+"%"
 			});
-		}).catch(error => {
+		}).catch(errror => {
 			res.status(500).json({
-				message: "Error while getting number of walkers"
+				message: "Error while getting the total"
 			});
 		});
+	}).catch(error => {
+		res.status(500).json({
+			message: "Error while getting number of walkers"
+		});
+	});
 };
 
 
@@ -66,16 +66,16 @@ ReportsController.losses = (req, res) => {
 		walkers.inventory.forEach(inv => {
 			switch(inv.item_name){
 				case "Water":
-					amountLost += inv.qty * 4;
+				amountLost += inv.qty * 4;
 				break;
 				case "Food":
-					amountLost += inv.qty * 3;
+				amountLost += inv.qty * 3;
 				break;
 				case "Ammunition":
-					amountLost += inv.qty * 1;
+				amountLost += inv.qty * 1;
 				break;
 				case "Medication":
-					amountLost += inv.qty * 2;
+				amountLost += inv.qty * 2;
 				break;
 			}
 		});
@@ -103,16 +103,16 @@ ReportsController.averageMaterial = (req, res) => {
 				survivor.inventory.forEach(item => {
 					switch(item.item_name){
 						case "Water":
-							allItems[0] += item.qty;
+						allItems[0] += item.qty;
 						break;
 						case "Food":
-							allItems[1] += item.qty;
+						allItems[1] += item.qty;
 						break;
 						case "Ammunition":
-							allItems[2] += item.qty;
+						allItems[2] += item.qty;
 						break;
 						case "Medication":
-							allItems[3] += item.qty;
+						allItems[3] += item.qty;
 						break;
 					}
 				});

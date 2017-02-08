@@ -3,18 +3,19 @@ import models from "./../Models";
 const SurvivorsController = {};
 
 SurvivorsController.add = (req, res) => {
-	const {name, age, gender, lastLocation, inventory} = req.body;
-	var Survivor = new models.Survivor({name, age, gender, lastLocation, status: false, reports: 0, inventory: inventory});
-		Survivor.save()
-		.then((newUser) => {
-			res.status(200).json({
-				success: true,
-			});
-		}).catch((error) => {
-			res.status(500).json({
-				message: "Cannot create survivor"
-			});
+	const {name, age, gender, lastLocation, inventory, id} = req.body;
+	var Survivor = new models.Survivor({name, age, gender, lastLocation, status: false, reports: 0, inventory: inventory, _id: id});
+	Survivor.save()
+	.then((newUser) => {
+		res.status(200).json({
+			success: true,
 		});
+	}).catch((error) => {
+		res.status(500).json({
+			message: "Cannot create survivor",
+			error: error
+		});
+	});
 	
 };
 

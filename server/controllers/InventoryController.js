@@ -17,16 +17,16 @@ InventoryController.trade = (req, res) => {
 	items_origin.forEach(item => {
 		switch(item.item_name){
 			case "Water":
-				items_values_origin += item.qty * 4;
+			items_values_origin += item.qty * 4;
 			break;
 			case "Food":
-				items_values_origin += item.qty * 3;
+			items_values_origin += item.qty * 3;
 			break;
 			case "Ammunition":
-				items_values_origin += item.qty * 1;
+			items_values_origin += item.qty * 1;
 			break;
 			case "Medication":
-				items_values_origin += item.qty * 2;
+			items_values_origin += item.qty * 2;
 			break;
 		}
 	});
@@ -34,16 +34,16 @@ InventoryController.trade = (req, res) => {
 	items_dest.forEach(item_dest => {
 		switch(item_dest.item_name){
 			case "Water":
-				items_values_dest += item_dest.qty * 4;
+			items_values_dest += item_dest.qty * 4;
 			break;
 			case "Food":
-				items_values_dest += item_dest.qty * 3;
+			items_values_dest += item_dest.qty * 3;
 			break;
 			case "Ammunition":
-				items_values_dest += item_dest.qty * 1;
+			items_values_dest += item_dest.qty * 1;
 			break;
 			case "Medication":
-				items_values_dest += item_dest.qty * 2;
+			items_values_dest += item_dest.qty * 2;
 			break;
 		}
 	});

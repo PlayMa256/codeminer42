@@ -3,6 +3,7 @@ const {Schema} = mongoose;
 mongoose.Promise = global.Promise;
 
 const SurvivorSchema = new Schema({
+	_id: Number,
 	name: String,
 	age: Number,
 	gender: String,
