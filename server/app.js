@@ -8,9 +8,5 @@ mongoose.connect("mongodb://localhost:27017/codeminer", () => {
 	console.log('connected');
 });
 
-
 app.use("/api", router);
-
-
-
 export default app;

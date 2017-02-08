@@ -81,10 +81,10 @@ ReportsController.losses = (req, res) => {
 		});
 
 		res.status(200).json({
-			"amountLost": amountLost;
+			"amountLost": amountLost
 		});
 	}).catch(error => {
-		res.status(500).json({
+		res.status(404).json({
 			"message": "We had a problem finding walkers"
 		});
 	});
@@ -135,13 +135,13 @@ ReportsController.averageMaterial = (req, res) => {
 			});
 
 		}).catch(error => {
-			res.status(500).json({
+			res.status(404).json({
 				"message" : "we couldnt find the number of survivors"
 			});
 		});
 		
 	}).catch(error => {
-		res.status(500).json({
+		res.status(404).json({
 			"message" : "we couldnt find all the survivors"
 		});
 	});

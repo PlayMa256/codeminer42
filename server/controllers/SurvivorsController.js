@@ -36,7 +36,7 @@ SurvivorsController.update = (req, res) => {
 			})
 		});
 	}).catch((error) => {
-		res.status(500).json({
+		res.status(404).json({
 			message: "Cannot find a Survivor with this ID"
 		});
 	});
@@ -75,7 +75,7 @@ SurvivorsController.flag = (req, res) => {
 		});
 
 	}).catch((error) => {
-		res.status(500).json({
+		res.status(404).json({
 			message: "Cannot find survivor"
 		});
 	});

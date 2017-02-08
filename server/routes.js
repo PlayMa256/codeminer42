@@ -8,6 +8,7 @@ const router = express();
 router.post("/survivors/create", SurvivorsController.add);
 router.put("/survivors/update/:id", SurvivorsController.update);
 router.get("/survivors/flag/:id", SurvivorsController.flag);
+router.post("/survivors/:originId", InventoryController.trade);
 router.get("/survivors/who-are-you", SurvivorsController.whoAreYou);
 
 router.get("/reports/infecteds", ReportsController.infecteds);
