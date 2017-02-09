@@ -1,6 +1,7 @@
 **ZSSN (Zombie Survival Social Network)**
 ----
 > To create a new survivor
+
 * **URL**
 
   `/api/survivors/create`
@@ -47,6 +48,7 @@
 
 ----
 > To update a survivors localization
+
 * **URL**
 
   `/api/survivors/update/:survivorID`
@@ -76,6 +78,7 @@
 
 ----
 > To flag a survivor as walker
+
 * **URL**
 
   `/api/survivors/flag/:survivorID`
@@ -94,6 +97,7 @@
 
 ----
 > Show the % of walkers/infecteds
+
 * **URL**
 
   `/api/reports/infecteds/`
@@ -113,6 +117,7 @@
 
 ----
 > Show the % of survivors
+
 * **URL**
 
   `/api/reports/survivors/`
@@ -131,6 +136,7 @@
 
 ----
 > Show the average material per survivor
+
 * **URL**
 
   `/api/reports/averageMaterial`
@@ -150,6 +156,7 @@
 
 ----
 > Show the amount of material loss
+
 * **URL**
 
   `/api/reports/losses`
@@ -168,6 +175,7 @@
 ----
 > To trade items between survivors
 > Trade between A (origin [URL PARAMETER]) and B (destination -> destSurvivorID)
+
 * **URL**
 
   `/api/survivors/:originId`
